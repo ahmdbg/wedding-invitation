@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 export function HeroSection({ onOpen }: { onOpen: () => void }) {
   const [text, setText] = useState("")
-  const fullText = "Romeo & Juliet"
+  const fullText = "Faqih & Zahra"
 
   useEffect(() => {
     let i = 0
@@ -33,7 +33,7 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
           {text}
           <span className="animate-pulse">|</span>
         </h1>
-        <p className="text-xl md:text-2xl font-light tracking-widest">24 . 12 . 2025</p>
+        <p className="text-xl md:text-2xl font-light tracking-widest">02 . 05 . 2026</p>
 
         <div className="pt-8">
           <Button

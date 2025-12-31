@@ -54,8 +54,8 @@ export default function WeddingPage() {
             <section className="py-24 bg-lace px-4">
               <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 text-center">
                 {[
-                  { name: "Juliet Capulet", parents: "Putri dari Bpk. Capulet & Ibu Capulet", gender: "Wanita" },
-                  { name: "Romeo Montague", parents: "Putra dari Bpk. Montague & Ibu Montague", gender: "Pria" },
+                  { name: "Zahra Mutafattihah", parents: "Putri dari Bpk. Capulet & Ibu Neni", gender: "Wanita" },
+                  { name: "Faqih Aminuddin", parents: "Putra dari Bpk. Syamsuddin & Ibu Eni Faridah", gender: "Pria" },
                 ].map((mempelai, idx) => (
                   <motion.div
                     key={idx}
@@ -99,7 +99,7 @@ export default function WeddingPage() {
                         </div>
                         <div>
                           <h3 className="text-3xl font-serif text-sapphire">Akad Nikah</h3>
-                          <p className="text-midnight font-medium">Masjid Agung City Center</p>
+                          <p className="text-midnight font-medium">Gedung jakarta Convention Center</p>
                         </div>
                       </div>
                       <div className="grid md:grid-cols-2 gap-8">
@@ -149,7 +149,7 @@ export default function WeddingPage() {
                         </div>
                         <div>
                           <h3 className="text-3xl font-serif text-sapphire">Resepsi</h3>
-                          <p className="text-midnight font-medium">Grand Ballroom Hotel Luxury</p>
+                          <p className="text-midnight font-medium">Gedung jakarta Convention Center</p>
                         </div>
                       </div>
                       <div className="grid md:grid-cols-2 gap-8">

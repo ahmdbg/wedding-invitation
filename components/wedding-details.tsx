@@ -5,16 +5,16 @@ export function WeddingDetails() {
   const details = [
     {
       title: "Akad Nikah",
-      date: "Minggu, 24 Desember 2025",
-      time: "08:00 - 10:00 WIB",
-      location: "Masjid Agung City Center",
+      date: "Sabtu, 02 Mei 2026",
+      time: "07:00 - 08:30 WIB",
+      location: "Gedung jakarta Convention Center",
       icon: <Calendar className="w-6 h-6 text-sapphire" />,
     },
     {
       title: "Resepsi",
-      date: "Minggu, 24 Desember 2025",
-      time: "11:00 - 13:00 WIB",
-      location: "Grand Ballroom Hotel Luxury",
+      date: "Sabtu, 02 Mei 2026",
+      time: "09:00 - 13:00 WIB",
+      location: "Gedung Jakarta Convention Center",
       icon: <Clock className="w-6 h-6 text-sapphire" />,
     },
   ]
