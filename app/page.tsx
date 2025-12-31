@@ -5,8 +5,9 @@ import { HeroSection } from "@/components/hero-section"
 import { WeddingDetails } from "@/components/wedding-details"
 import { CountdownTimer } from "@/components/countdown-timer"
 import { RSVPForm } from "@/components/rsvp-form"
+import { FallingPetals } from "@/components/falling-petals"
 import { motion, AnimatePresence } from "framer-motion"
-import { Music, Music2 } from "lucide-react"
+import { Music, Music2, MapPin } from "lucide-react"
 
 export default function WeddingPage() {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,6 +15,7 @@ export default function WeddingPage() {
 
   return (
     <main className="min-h-screen">
+      <FallingPetals />
       <AnimatePresence>
         {!isOpen ? (
           <motion.div
@@ -77,65 +79,156 @@ export default function WeddingPage() {
             </section>
 
             <WeddingDetails />
-            <CountdownTimer />
 
-            {/* Love Story - Timeline */}
-            <section className="py-24 bg-lace overflow-hidden">
-              <h2 className="text-4xl font-serif text-center mb-16">Kisah Cinta</h2>
-              <div className="max-w-4xl mx-auto px-4 relative">
-                <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-sapphire/20 -translate-x-1/2 hidden md:block" />
-                {[
-                  {
-                    date: "Januari 2022",
-                    title: "Pertemuan Pertama",
-                    desc: "Pertama kali mata kami bertemu di sebuah kedai kopi kecil.",
-                  },
-                  {
-                    date: "Agustus 2023",
-                    title: "Komitmen",
-                    desc: "Kami memutuskan untuk melangkah lebih serius dalam hubungan ini.",
-                  },
-                  {
-                    date: "Maret 2025",
-                    title: "Lamaran",
-                    desc: "Janji suci diucapkan di bawah langit senja yang indah.",
-                  },
-                ].map((story, idx) => (
+            {/* Wedding Venue */}
+            <section className="py-24 bg-bridal-blue px-4">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-4xl md:text-5xl font-serif text-center mb-16 text-midnight">Alamat Acara</h2>
+                <div className="space-y-12">
+                  {/* Akad Nikah */}
                   <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className={`flex flex-col md:flex-row items-center mb-16 ${idx % 2 !== 0 ? "md:flex-row-reverse" : ""}`}
+                    className="bg-white/95 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl"
                   >
-                    <div className="md:w-1/2 px-8 text-center md:text-right">
-                      {idx % 2 !== 0 ? null : (
-                        <>
-                          <span className="text-sapphire font-bold">{story.date}</span>
-                          <h4 className="text-xl font-serif mt-2">{story.title}</h4>
-                          <p className="text-muted-foreground mt-2">{story.desc}</p>
-                        </>
-                      )}
-                      {idx % 2 !== 0 && (
-                        <div className="md:hidden">
-                          <span className="text-sapphire font-bold">{story.date}</span>
-                          <h4 className="text-xl font-serif mt-2">{story.title}</h4>
-                          <p className="text-muted-foreground mt-2">{story.desc}</p>
+                    <div className="p-8 md:p-12">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="p-3 bg-sapphire/10 rounded-full">
+                          <MapPin className="w-8 h-8 text-sapphire" />
                         </div>
-                      )}
-                    </div>
-                    <div className="w-4 h-4 rounded-full bg-sapphire z-10 my-4 md:my-0" />
-                    <div className="md:w-1/2 px-8 text-center md:text-left">
-                      {idx % 2 !== 0 ? (
-                        <>
-                          <span className="text-sapphire font-bold">{story.date}</span>
-                          <h4 className="text-xl font-serif mt-2">{story.title}</h4>
-                          <p className="text-muted-foreground mt-2">{story.desc}</p>
-                        </>
-                      ) : null}
+                        <div>
+                          <h3 className="text-3xl font-serif text-sapphire">Akad Nikah</h3>
+                          <p className="text-midnight font-medium">Masjid Agung City Center</p>
+                        </div>
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-8">
+                        <div className="space-y-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-2 h-2 rounded-full bg-sapphire mt-3 flex-shrink-0"></div>
+                            <p className="text-muted-foreground leading-relaxed">
+                              Jl. Raya Utama No. 123, Kelurahan Harmoni,<br />
+                              Kecamatan Pusat Kota, Jakarta Pusat 10230
+                            </p>
+                          </div>
+                          <div className="bg-lace/50 rounded-xl p-4">
+                            <p className="text-sm text-midnight font-medium mb-2">Informasi Parkir:</p>
+                            <p className="text-sm text-muted-foreground">
+                              Parkir tersedia di area masjid. Silakan datang 30 menit sebelum acara dimulai.
+                            </p>
+                          </div>
+                        </div>
+                        <div className="bg-gray-100 rounded-xl overflow-hidden">
+                          <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3!2d106.816666!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknMDAuMCJF!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+                            width="100%"
+                            height="200"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="w-full h-full"
+                          ></iframe>
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
-                ))}
+
+                  {/* Resepsi */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="bg-white/95 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl"
+                  >
+                    <div className="p-8 md:p-12">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="p-3 bg-sapphire/10 rounded-full">
+                          <MapPin className="w-8 h-8 text-sapphire" />
+                        </div>
+                        <div>
+                          <h3 className="text-3xl font-serif text-sapphire">Resepsi</h3>
+                          <p className="text-midnight font-medium">Grand Ballroom Hotel Luxury</p>
+                        </div>
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-8">
+                        <div className="space-y-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-2 h-2 rounded-full bg-sapphire mt-3 flex-shrink-0"></div>
+                            <p className="text-muted-foreground leading-relaxed">
+                              Jl. Mewah Boulevard No. 456, Kelurahan Elegan,<br />
+                              Kecamatan Premium District, Jakarta Selatan 12190
+                            </p>
+                          </div>
+                          <div className="bg-lace/50 rounded-xl p-4">
+                            <p className="text-sm text-midnight font-medium mb-2">Informasi Tamu:</p>
+                            <p className="text-sm text-muted-foreground">
+                              Valet parking tersedia. Dress code: Formal attire. Undangan wajib ditunjukkan di pintu masuk.
+                            </p>
+                          </div>
+                        </div>
+                        <div className="bg-gray-100 rounded-xl overflow-hidden">
+                          <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3!2d106.816666!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknMDAuMCJF!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+                            width="100%"
+                            height="200"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="w-full h-full"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </section>
+
+            <CountdownTimer />
+
+            {/* Love Story */}
+            <section className="py-24 bg-lace px-4">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-4xl md:text-5xl font-serif text-center mb-16 text-midnight">Kisah Cinta</h2>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {[
+                    {
+                      date: "Januari 2022",
+                      title: "Pertemuan Pertama",
+                      desc: "Pertama kali mata kami bertemu di sebuah kedai kopi kecil yang hangat.",
+                      icon: "💕",
+                    },
+                    {
+                      date: "Agustus 2023",
+                      title: "Komitmen",
+                      desc: "Kami memutuskan untuk melangkah lebih serius dalam hubungan ini dengan penuh keyakinan.",
+                      icon: "🤝",
+                    },
+                    {
+                      date: "Maret 2025",
+                      title: "Lamaran",
+                      desc: "Janji suci diucapkan di bawah langit senja yang indah, memulai babak baru kehidupan kami.",
+                      icon: "💍",
+                    },
+                  ].map((story, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.2 }}
+                      className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 text-center"
+                    >
+                      <div className="text-4xl mb-4">{story.icon}</div>
+                      <span className="text-sapphire font-bold text-sm uppercase tracking-wider">{story.date}</span>
+                      <h4 className="text-2xl font-serif mt-3 mb-4 text-midnight">{story.title}</h4>
+                      <p className="text-muted-foreground leading-relaxed">{story.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </section>
 
