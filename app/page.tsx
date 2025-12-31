@@ -53,31 +53,30 @@ export default function WeddingPage() {
             {/* Mempelai */}
             <section className="py-24 bg-lace px-4">
               <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 text-center">
-                {[
-                  { name: "Zahra Mutafattihah", parents: "Putri dari Bpk. Capulet & Ibu Neni", gender: "Wanita" },
-                  { name: "Faqih Aminuddin", parents: "Putra dari Bpk. Syamsuddin & Ibu Eni Faridah", gender: "Pria" },
-                ].map((mempelai, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="p-12 bg-petal rounded-[3rem] space-y-6"
-                  >
-                    <div className="w-48 h-64 mx-auto bg-white rounded-full overflow-hidden shadow-inner border-8 border-white">
-                      <img
-                        src={`/.jpg?height=400&width=300&query=${mempelai.gender === "Wanita" ? "bride" : "groom"}`}
-                        alt={mempelai.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="text-3xl md:text-4xl font-serif text-midnight">{mempelai.name}</h3>
-                    <p className="text-sm uppercase tracking-widest opacity-70">{mempelai.parents}</p>
-                  </motion.div>
-                ))}
+              {[
+                { name: "Zahra Mutafattihah", parents: "Putri dari Bpk. Capulet & Ibu Neni", gender: "Wanita", image: "./WhatsApp Image 2025-12-27 at 15.50.59 (1).jpeg" },
+                { name: "Faqih Aminuddin", parents: "Putra dari Bpk. Syamsuddin & Ibu Eni Faridah", gender: "Pria", image: "./WhatsApp Image 2025-12-27 at 15.50.59.jpeg" },
+              ].map((mempelai, idx) => (
+                <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="p-12 bg-petal rounded-[3rem] space-y-6"
+                >
+                <div className="w-48 h-64 mx-auto bg-white rounded-full overflow-hidden shadow-inner border-8 border-white">
+                  <img
+                  src={mempelai.image}
+                  alt={mempelai.name}
+                  className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-3xl md:text-4xl font-serif text-midnight">{mempelai.name}</h3>
+                <p className="text-sm uppercase tracking-widest opacity-70">{mempelai.parents}</p>
+                </motion.div>
+              ))}
               </div>
             </section>
-
             <WeddingDetails />
 
             {/* Wedding Venue */}
